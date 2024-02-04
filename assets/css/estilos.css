@@ -18,7 +18,22 @@ body {
   #Hero-Section p {
     text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.8); /* Ajusta los valores según tu preferencia */
   }
+
+    /* Otro */
   
+    #Otro .image-top {
+      height: 250px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  /* Curriculum */
+  
+  #Curriculum form label {
+    font-weight: 700;
+    color: #373a3c;
+  }
+    
   /* Mis trabajos */
   
   #Mis-trabajos .image-top {
