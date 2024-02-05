@@ -5,19 +5,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $mensaje = $_POST["mensaje"];
 
-    // Aquí puedes incluir tu código para enviar el correo electrónico.
-    // Por ejemplo, usando la función mail() de PHP o un servicio externo.
-
-    // Ejemplo con mail() (asegúrate de tener configurado un servidor de correo local):
-    $destinatario = "militzaf@gmail.com";
+    // Configura los detalles del correo
+    $destinatario = "tudireccion@email.com";
     $asunto = "Nuevo mensaje de contacto";
     $cuerpo = "Nombre: $nombre\nCorreo: $email\nMensaje: $mensaje";
-    
-    mail($destinatario, $asunto, $cuerpo);
+    $headers = "From: $email";
 
-    // Puedes redirigir al usuario a una página de confirmación.
-    header("Location: confirmacion.html");
-    exit();
+    // Envía el correo
+    if (mail($destinatario, $asunto, $cuerpo, $headers)) {
+        // Redirige a una página de confirmación si el correo se envía con éxito
+        header("Location: confirmacion.html");
+        exit();
+    } else {
+        // Si hay un problema al enviar el correo, puedes manejarlo de la manera que desees
+        echo "Hubo un error al enviar el correo. Por favor, intenta nuevamente.";
+    }
 }
 
 ?>
